@@ -1,11 +1,20 @@
-const forms = document.querySelector(".forms"),
-      pwShowHide = document.querySelectorAll(".eye-icon"),
-      links = document.querySelectorAll(".link");
+/*sessionStorage.setItem("name","Tân");
+let personName = sessionStorage.getItem("name");
+
+document.getElementById("demo").innerHTML = personName
+*/
+
+//localstorage => luu tren may chu => private
+//sessionstorage => lưu => public
+
+const form = document.querySelector(".forms"),
+
+    pwShowHide = document.querySelectorAll(".eye-icon"),
+    links = document.querySelectorAll(".link");
 
 pwShowHide.forEach(eyeIcon => {
-    eyeIcon.addEventListener("click", () => {
+    eyeIcon.addEventListener("click",()=> {
         let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
-        
         pwFields.forEach(password => {
             if(password.type === "password"){
                 password.type = "text";
@@ -13,16 +22,15 @@ pwShowHide.forEach(eyeIcon => {
                 return;
             }
             password.type = "password";
-            eyeIcon.classList.replace("bx-show", "bx-hide");
+            eyeIcon.classList.replace("bx-show", "bx-hide"); 
         })
-        
     })
-})
-      
 
-links.forEach(link => {
-    link.addEventListener("click", e => {
-       e.preventDefault(); //preventing form submit
-       forms.classList.toggle("show-signup");
+})
+links.forEach(link =>{
+    link.addEventListener("click", e=> {
+        e.preventDefault();
+        forms.classList.toggle("show-signup");
     })
 })
+
